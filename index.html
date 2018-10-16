@@ -1,0 +1,27 @@
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>数据测试</title>
+    <script type="text/javascript" src="resources/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/socket.io.min.js"></script>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+        var socket = io.connect('http://localhost:3300');
+        socket.on('connect', function () {
+            socket.emit('my_event', {data: 'I\'m connected!'}
+            );
+        });
+        socket.on('server_response', function (msg) {
+           console.log(msg)
+        });
+    </script>
+
+
+</body>
+
+</html>
